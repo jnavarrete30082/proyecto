@@ -1,23 +1,23 @@
 <?php
 // Process delete operation after confirmation
-if (isset($_POST["idEvento"]) && !empty($_POST["idEvento"])) {
+if (isset($_POST["idHospedaje"]) && !empty($_POST["idHospedaje"])) {
     // Include config file
     require_once "config.php";
 
     // Prepare a delete statement
-    $sql = "DELETE FROM eventos WHERE idEvento = :idEvento";
+    $sql = "DELETE FROM hospedaje WHERE idHospedaje = :idHospedaje";
 
     if ($stmt = $pdo->prepare($sql)) {
         // Bind variables to the prepared statement as parameters
-        $stmt->bindParam(":idEvento", $param_idEvento);
+        $stmt->bindParam(":idHospedaje", $param_idHospedaje);
 
         // Set parameters
-        $param_idEvento = trim($_POST["idEvento"]);
+        $param_idHospedaje = trim($_POST["idHospedaje"]);
 
         // Attempt to execute the prepared statement
         if ($stmt->execute()) {
             // Records deleted successfully. Redirect to landing page
-            header("location: listaEventos.php");
+            header("location: listaHospedaje.php");
             exit();
         } else {
             echo "Oops! Algo salio mal, intente luego.";
@@ -31,7 +31,7 @@ if (isset($_POST["idEvento"]) && !empty($_POST["idEvento"])) {
     unset($pdo);
 } else {
     // Check existence of id parameter
-    if (empty(trim($_GET["idEvento"]))) {
+    if (empty(trim($_GET["idHospedaje"]))) {
         // URL doesn't contain id parameter. Redirect to error page
         header("location: error.php");
         exit();
@@ -65,11 +65,11 @@ if (isset($_POST["idEvento"]) && !empty($_POST["idEvento"])) {
                     <h2 class="mt-5 mb-3">Borrar datos</h2>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="alert alert-danger">
-                            <input type="hidden" name="idEvento" value="<?php echo trim($_GET["idEvento"]); ?>" />
+                            <input type="hidden" name="idHospedaje" value="<?php echo trim($_GET["idHospedaje"]); ?>" />
                             <p>Esta seguro de eliminar este dato?</p>
                             <p>
                                 <input type="submit" value="Si" class="btn btn-danger">
-                                <a href="listaEventos.php" class="btn btn-secondary ml-2">No</a>
+                                <a href="listaHospedaje.php" class="btn btn-secondary ml-2">No</a>
                             </p>
                         </div>
                     </form>

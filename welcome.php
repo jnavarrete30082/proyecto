@@ -51,8 +51,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
               <div class="dropdown-menu">
                 <a href="listaAutos.php" class="dropdown-item">Alquiler de autos</a>
                 <a href="listaEventos.php" class="dropdown-item">Entradas a Eventos</a>
-                <a href="#" class="dropdown-item">Hospedaje</a>
-                <a href="#" class="dropdown-item">Paquetes de viajes</a>
+                <a href="listaHospedaje.php" class="dropdown-item">Hospedaje</a>
+                <a href="listaPaquetes.php" class="dropdown-item">Paquetes de viajes</a>
                 <a href="listaVuelos.php" class="dropdown-item">Vuelos</a>
               </div>
             </li>

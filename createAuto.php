@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $descripcionAuto = $input_descripcionAuto;
     }
     // Validate precioAuto
-    $input_precioAuto= trim($_POST["precioAuto"]);
+    $input_precioAuto = trim($_POST["precioAuto"]);
     if (empty($input_precioAuto)) {
         $precioAuto_err = "Please enter the salary amount.";
     } elseif (!ctype_digit($input_precioAuto)) {
@@ -97,8 +97,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-        <!-- Start of Header-NavBar -->
-        <div class="m-4">
+    <!-- Start of Header-NavBar -->
+    <div class="m-4">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <img src="images/logo2.jpg" width="120" height="120" alt="Logo" />
             <h1 style="color: white; text-align: justify;font-size: 28px;">Panel de administracion</h1>
